@@ -7,6 +7,7 @@ export interface Thumbnail {
 export interface Snippet {
   channelTitle: string;
   title: string;
+  description: string;
   thumbnails: {
     medium: Thumbnail;
     high?: Thumbnail;

@@ -3,9 +3,11 @@ import Sidebar from "./Sidebar";
 
 const Body = () => {
   return (
-    <div className="flex">
+    <div className="flex h-[calc(100vh-6rem)] w-full">
       <Sidebar />
-      <Outlet />
+      <div className="flex-1 overflow-y-auto w-full">
+        <Outlet />
+      </div>
     </div>
   );
 };

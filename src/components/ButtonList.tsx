@@ -1,5 +1,6 @@
 import Button from "./button";
 
+
 const btnList = [
   "All",
   "Music",
@@ -14,9 +15,9 @@ const btnList = [
 
 const ButtonList = () => {
   return (
-    <div className="flex">
-      {btnList.map((name) => {
-        return <Button key={name} name={name} />;
+    <div className="flex overflow-x-auto whitespace-nowrap p-3 gap-3 no-scrollbar border-b border-gray-200">
+      {btnList.map((name, index) => {
+        return <Button key={name} name={name} active={index === 0} />;
       })}
     </div>
   );

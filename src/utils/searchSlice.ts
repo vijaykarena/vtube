@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface SearchState {
     [key: string]: string[];
@@ -10,7 +10,7 @@ const searchSlice = createSlice({
     name: "search",
     initialState,
     reducers: {
-        cacheResults: (state: SearchState, action) => {
+        cacheResults: (state: SearchState, action: PayloadAction<{ [key: string]: string[] }>) => {
             return { ...state, ...action.payload }
         }
     }

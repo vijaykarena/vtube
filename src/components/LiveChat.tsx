@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import ChatMassage from "./ChatMassage";
 import { useDispatch, useSelector } from "react-redux";
-import { addMessage } from "../utils/chatSlice";
+import { addMessage, type ChatMessage } from "../utils/chatSlice";
 import { generateRandomName, makeRandomMessage } from "../utils/helper";
 import { useState } from "react";
+import { type RootState } from "../utils/store";
 
 const LiveChat = () => {
     const [liveMessage, setLiveMessage] = useState("");
 
     const dispatch = useDispatch();
 
-    const chatMessages = useSelector((store: any) => store.chat.messages);
+    const chatMessages = useSelector((store: RootState) => store.chat.messages);
 
     useEffect(() => {
         const i = setInterval(() => {
@@ -27,7 +28,7 @@ const LiveChat = () => {
         <>
             <div className="w-full h-[600px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse">
                 <div>
-                    {chatMessages.map((c, index) => <ChatMassage key={index} name={c.name} message={c.message} />)}
+                    {chatMessages.map((c: ChatMessage, index: number) => <ChatMassage key={index} name={c.name} message={c.message} />)}
                 </div>
             </div>
             <form

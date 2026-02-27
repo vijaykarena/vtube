@@ -179,7 +179,7 @@ export function generateRandomName() {
     return nameList[Math.floor(Math.random() * nameList.length)];
 }
 
-export function makeRandomMessage(length) {
+export function makeRandomMessage(length: number) {
     let result = "";
     const characters =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

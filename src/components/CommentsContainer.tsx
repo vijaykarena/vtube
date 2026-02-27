@@ -1,6 +1,10 @@
-import React from "react";
+interface CommentType {
+    name: string;
+    text: string;
+    replies: CommentType[];
+}
 
-const commentsData = [
+const commentsData: CommentType[] = [
     {
         name: "Vijay Karena",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
@@ -73,8 +77,8 @@ const commentsData = [
     },
 ];
 
-const Comment = ({ data }) => {
-    const { name, text, replies } = data;
+const Comment = ({ data }: { data: CommentType }) => {
+    const { name, text } = data;
     return (
         <div className="flex shadow-sm bg-gray-100 p-2 rounded-lg my-2">
             <img
@@ -90,9 +94,9 @@ const Comment = ({ data }) => {
     );
 };
 
-const CommentsList = ({ comments }) => {
+const CommentsList = ({ comments }: { comments: CommentType[] }) => {
     // Disclaimer: Don't use indexes as keys
-    return comments.map((comment, index) => (
+    return comments.map((comment: CommentType, index: number) => (
         <div key={index}>
             <Comment data={comment} />
             <div className="pl-5 border border-l-black ml-5">
